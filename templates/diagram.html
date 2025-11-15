@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ diagram.title }} - Learn UML</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body class="diagram-page">
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="/" class="nav-logo">Learn UML</a>
+            <a href="/" class="back-button">
+                <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M13 16L7 10L13 4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+                Back to Home
+            </a>
+        </div>
+    </nav>
+
+    <div class="diagram-container">
+        <header class="diagram-header fade-in">
+            <h1>{{ diagram.title }}</h1>
+        </header>
+
+        <section class="content-section slide-up">
+            <h2>What is {{ diagram.title }}?</h2>
+            <div class="description-box">
+                <p>{{ diagram.description.what }}</p>
+                <p>{{ diagram.description.why }}</p>
+            </div>
+        </section>
+
+        <section class="content-section slide-up">
+            <h2>UML Notations & Elements</h2>
+            <div class="notations-grid">
+                {% for notation in diagram.notations %}
+                <div class="notation-card">
+                    <div class="notation-shape">
+                        {{ notation.svg|safe }}
+                    </div>
+                    <div class="notation-info">
+                        <h3>{{ notation.name }}</h3>
+                        <p>{{ notation.description }}</p>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </section>
+
+        <section class="content-section slide-up">
+            <h2>Complete Example: {{ diagram.example.scenario }}</h2>
+            <div class="example-box">
+                <div class="example-description">
+                    <h3>Scenario Description</h3>
+                    <p>{{ diagram.example.description }}</p>
+                </div>
+                <div class="example-diagram">
+                    <h3>Visual Representation</h3>
+                    <div class="diagram-svg">
+                        {{ diagram.example.svg|safe }}
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <footer class="diagram-footer">
+            <a href="/" class="footer-link">Explore More Diagrams</a>
+        </footer>
+    </div>
+
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+</body>
+</html>
