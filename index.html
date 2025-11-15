@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Learn UML - Master UML Diagrams</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <div class="hero-section">
+        <div class="hero-content fade-in">
+            <h1 class="hero-title">Welcome Developers</h1>
+            <p class="hero-subtitle">Explore UML Diagrams Easily</p>
+            
+            <div class="selection-card slide-up">
+                <h2>Choose a UML Diagram</h2>
+                <div class="form-group">
+                    <select id="diagramSelect" class="diagram-dropdown">
+                        <option value="">Select a diagram type...</option>
+                        <option value="use-case">Use Case Diagram</option>
+                        <option value="class">Class Diagram</option>
+                        <option value="activity">Activity Diagram</option>
+                        <option value="sequence">Sequence Diagram</option>
+                    </select>
+                </div>
+                <button id="viewButton" class="view-button">
+                    <span>View Diagram</span>
+                    <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M7 4L13 10L7 16" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </button>
+            </div>
+        </div>
+        
+        <div class="background-shapes">
+            <div class="shape shape-1"></div>
+            <div class="shape shape-2"></div>
+            <div class="shape shape-3"></div>
+        </div>
+    </div>
+
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+</body>
+</html>
